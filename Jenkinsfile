@@ -34,4 +34,30 @@ pipeline {
 
     }
 
+    post {
+
+        success {
+
+            archiveArtifacts artifacts: 'target/*.jar'
+
+            echo 'Build Completed Successfully'
+
+            echo 'Artifact Archived'
+
+        }
+
+        failure {
+
+            echo 'Build Failed'
+
+        }
+
+        always {
+
+            echo 'Pipeline Finished'
+
+        }
+
+    }
+
 }
